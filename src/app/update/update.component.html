@@ -1,0 +1,68 @@
+<body>
+
+<mat-card style="height: 40%">
+
+  <mat-card-header>
+
+    <h2>
+      <mat-icon>usb</mat-icon>
+      ویرایش جریان کاری/
+    </h2>
+    <span style="font-size: 20px;margin-top: 8px" *ngIf="periodicElement!=null">{{periodicElement.name}}</span>
+
+  </mat-card-header>
+  <hr>
+  <mat-card-content>
+    <form class="form" (ngSubmit)="onSubmit()" #f="ngForm" (keyup)="typeOnchange()">
+
+      <label class="label">نام</label> <span style="color: red"> *</span>
+      <input type="text" *ngIf="periodicElement!=null" [(ngModel)]="periodicElement.name" name="name" ngModel required>
+
+      <br>
+
+      <label>نوع طرح</label> <span style="color: red"> *</span>
+      <input style="margin-top: 30px" type="text" *ngIf="periodicElement!=null" [(ngModel)]="periodicElement.Type"
+             name="Type" required>
+
+
+      <label style="font-size: 20px; padding-right:47px;">فعال</label>
+      <mat-checkbox name="status" style="padding-right: 10px;margin-top: 20px" [(ngModel)]="periodicElement.status"></mat-checkbox>
+
+      <button mat-raised-button class="mat-raised-button2" type="submit"
+              [disabled]="!f.valid
+
+             || whenOpenPage ||(
+             periodicElementBeforeChange.Type==periodicElement.Type &&
+             periodicElementBeforeChange.name==periodicElement.name) ||
+             (periodicElementBeforeChange.name==periodicElement.name &&
+             periodicElementBeforeChange.Type==periodicElement.Type)">ثبت
+      </button>
+
+    </form>
+
+    <br>
+
+
+  </mat-card-content>
+
+  <hr>
+
+  <button mat-raised-button (click)="exit()">
+    <mat-icon>shortcut</mat-icon>
+    برگشت
+  </button>
+  <!--  <form >-->
+  <!--    <button mat-raised-button class="mat-raised-button2" type="submit"-->
+  <!--            [disabled]="!f.valid-->
+
+  <!--             || whenOpenPage ||(-->
+  <!--             periodicElementBeforeChange.Type==periodicElement.Type &&-->
+  <!--             periodicElementBeforeChange.name==periodicElement.name) ||-->
+  <!--             (periodicElementBeforeChange.name==periodicElement.name &&-->
+  <!--             periodicElementBeforeChange.Type==periodicElement.Type)">ثبت-->
+  <!--    </button>-->
+  <!--  </form>-->
+
+
+</mat-card>
+</body>
