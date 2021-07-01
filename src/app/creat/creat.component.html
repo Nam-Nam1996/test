@@ -1,0 +1,46 @@
+<body>
+
+<mat-card style="height: 30%">
+  <mat-card-header>
+    <h2>
+      <mat-icon>usb</mat-icon>
+      جریان کاری جدید
+    </h2>
+  </mat-card-header>
+  <hr>
+  <mat-card-content>
+    <form class="form" (ngSubmit)="onSubmit()" #f="ngForm">
+      <label class="label">نام</label> <span style="color: red"> *</span>
+      <input type="text" name="name" ngModel required>
+
+      <br>
+
+      <label >نوع طرح</label> <span style="color: red"> *</span>
+      <input  style="margin-top: 30px"type="text" name="Type" ngModel required >
+
+
+      <br>
+
+      <label style="font-size: 20px; padding-right:47px;">فعال</label>
+      <mat-checkbox style="padding-right: 10px;margin-top: 20px" ></mat-checkbox>
+
+
+
+
+    </form>
+  </mat-card-content>
+  <hr>
+  <mat-card-actions>
+    <button mat-raised-button (click)="exit()">
+      <mat-icon>shortcut</mat-icon>
+      برگشت
+    </button>
+    <form >
+      <button mat-raised-button class="mat-raised-button2" type="submit" [disabled]="!f.valid">ثبت</button>
+    </form>
+
+
+  </mat-card-actions>
+</mat-card>
+</body>
+
