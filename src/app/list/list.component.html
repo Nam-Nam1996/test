@@ -10,12 +10,12 @@
       <p style="margin-top: 10px">
         لیست جریان کاری
       </p>
-      <button mat-raised-button class="li" (click)="addData()">
+      <button (click)="addData()" class="li" mat-raised-button>
         <mat-icon style="color: gray;font-weight: bold">add</mat-icon>
         جریان کاری جدید
       </button>
 
-      <button mat-raised-button class="li" (click)="openDialogg()">
+      <button (click)="openDialogg()" class="li" mat-raised-button>
         <mat-icon style="color: gray;font-weight: bold">add</mat-icon>
         جریان کاری جدید
       </button>
@@ -27,41 +27,41 @@
     <mat-card-header>
       <form class="example-form" dir="rtl">
         <mat-form-field>
-          <input matInput (keyup)="applyFilter($event)" placeholder=" جریان کاری را وارد کنید">
+          <input (keyup)="applyFilter($event)" matInput placeholder=" جریان کاری را وارد کنید">
         </mat-form-field>
 
       </form>
 
 
-      <mat-checkbox color="accent" class="example-margin" [(ngModel)]="checked" (change)="onCheckboxChange($event)">
+      <mat-checkbox (change)="onCheckboxChange($event)" [(ngModel)]="checked" class="example-margin" color="accent">
 
       </mat-checkbox>
       <p class="p1">فعال</p>
     </mat-card-header>
 
     <mat-card-content>
-      <table mat-table [dataSource]="dataSource">
+      <table [dataSource]="dataSource" mat-table>
 
 
         <ng-container matColumnDef="name">
 
-          <th mat-header-cell class="name-header" *matHeaderCellDef>
+          <th *matHeaderCellDef class="name-header" mat-header-cell>
             <mat-icon>text_rotate_vertical</mat-icon>
             نام
           </th>
-          <td mat-cell class="name-cell" *matCellDef="let element">{{element.name}}</td>
+          <td *matCellDef="let element" class="name-cell" mat-cell>{{element.name}}</td>
         </ng-container>
         <ng-container matColumnDef="Type">
-          <th mat-header-cell class="type-header" *matHeaderCellDef>نوع طرح</th>
-          <td mat-cell class="type-cell" *matCellDef="let element">{{element.Type}}</td>
+          <th *matHeaderCellDef class="type-header" mat-header-cell>نوع طرح</th>
+          <td *matCellDef="let element" class="type-cell" mat-cell>{{element.Type}}</td>
         </ng-container>
         <ng-container matColumnDef="service">
-          <th mat-header-cell class="service-header" *matHeaderCellDef>خدمات مرتبط</th>
-          <td mat-cell class="service-cell" *matCellDef="let element">{{element.service}}</td>
+          <th *matHeaderCellDef class="service-header" mat-header-cell>خدمات مرتبط</th>
+          <td *matCellDef="let element" class="service-cell" mat-cell>{{element.service}}</td>
         </ng-container>
         <ng-container matColumnDef="status">
-          <th mat-header-cell class="status-header" *matHeaderCellDef>وضعیت</th>
-          <td mat-cell class="status-cell" *matCellDef="let element;let i=index">
+          <th *matHeaderCellDef class="status-header" mat-header-cell>وضعیت</th>
+          <td *matCellDef="let element;let i=index" class="status-cell" mat-cell>
             <mat-icon *ngIf="dataSource.data[i].status" class="icon-done">
               done
             </mat-icon>
@@ -72,9 +72,9 @@
         </ng-container>
 
         <ng-container matColumnDef="levels">
-          <th mat-header-cell class="levels-header" *matHeaderCellDef>مراحل</th>
-          <td mat-cell class="levels-cell" *matCellDef="let element">{{element.levels}}
-            <button mat-raised-button color="warn">
+          <th *matHeaderCellDef class="levels-header" mat-header-cell>مراحل</th>
+          <td *matCellDef="let element" class="levels-cell" mat-cell>{{element.levels}}
+            <button color="warn" mat-raised-button>
               <mat-icon>
                 format_list_numbered
               </mat-icon>
@@ -83,18 +83,17 @@
           </td>
         </ng-container>
         <ng-container matColumnDef="operation">
-          <th mat-header-cell class="operation-header" *matHeaderCellDef>عملیات</th>
+          <th *matHeaderCellDef class="operation-header" mat-header-cell>عملیات</th>
 
-          <td mat-cell class="operation-cell" *matCellDef="let element;let i =index">{{element.operation}}
-            <button mat-raised-button color="primary" (click)="UpdateData(i)">
+          <td *matCellDef="let element;let i =index" class="operation-cell" mat-cell>{{element.operation}}
+            <button (click)="UpdateData(i)" color="primary" mat-raised-button>
               <mat-icon>
                 edit
               </mat-icon>
               ویرایش
             </button>
 
-
-            <button type="button" mat-raised-button color="accent" style="margin: 15px" (click)="openDialog(i)">
+            <button (click)="openDialog(i)" color="accent" mat-raised-button style="margin: 15px" type="button">
 
 
               <mat-icon>
@@ -106,19 +105,10 @@
           </td>
         </ng-container>
 
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
       </table>
     </mat-card-content>
-
   </div>
-<!--  <app-update (namnam)="setdata1($event)"></app-update>1-->
-
-  <!--  <router-outlet></router-outlet>-->
-   <!--  <app-update (iLoveNamnam)="setData($event)"></app-update>-->
-
 </mat-card>
-<!--  <router-outlet></router-outlet>-->
