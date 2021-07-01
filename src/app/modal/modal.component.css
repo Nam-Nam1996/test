@@ -1,0 +1,32 @@
+.mat-dialog-content{
+  width: 1000px;
+  height: 1000px;
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+
+.mat-raised-button2{
+  float: left;
+  background-color: green ;
+  color: #d7d7d7;
+  font-weight: bold;
+
+}
+
+form{
+  font-size: 20px;
+}
+
+input{
+  width: 90%;
+  font-weight: bold;
+}
+.label{
+  text-align:right;
+  padding-right:47px;
+
+
+}
